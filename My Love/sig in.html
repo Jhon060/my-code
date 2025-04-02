@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Pacifico&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login">
+        <form id="myfrom" method="post" name="from_my">
+
+            <div class="username">
+                <input type="text" id="username" placeholder="username">
+            </div>
+
+            <div class="password_user">
+                <input type="text" id="password_user" placeholder="password">
+            </div>
+
+            <div class="login-button">
+             <input type="button" onclick="login()" id="submit" value="log in">
+            </div>
+        </form>
+
+        <P id="text_show"></P>
+    </div>
+
+
+
+    <script>
+
+        function login () {
+
+            let username=document.getElementById("username").value;
+            let password=document.getElementById("password_user").value;
+            let text_show=document.getElementById("text_show");
+
+            let website_username="love";
+            let website_password="1234"
+
+            if( username == website_username && password == website_password){
+
+                window.location="index.html"
+
+            }
+
+            else if(username == "" && password == ""){
+
+                alert("thats a wrong password/username")
+
+            }
+
+            else if(username== website_username && password !== website_password){
+
+                document.getElementById("username").style.border="2px solid green"
+                document.getElementById("password_user").style.border="2px solid red"
+
+                text_show.innerHTML="love password is incorrect"
+            }
+
+            else if(username !== website_username && password === website_password){
+
+                document.getElementById("username").style.border="2px solid red"
+                document.getElementById("password_user").style.border="2px solid green"
+
+                text_show.innerHTML="love username is incorrect"
+            }
+
+            else{
+                document.getElementById("username").style.border="2px solid red" 
+                document.getElementById("password_user").style.border="2px solid green"
+            }
+        }
+
+    </script>
+</body>
+</html>
